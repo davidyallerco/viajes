@@ -2,10 +2,7 @@ package com.parnertdigital.viajes.domain.entities;
 
 import com.parnertdigital.viajes.util.AeroLine;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Set;
@@ -26,6 +23,8 @@ public class HotelEntity {
     private Integer rating;
     private BigDecimal price;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true,  mappedBy = "hotel" )
     private Set<ReservationEntity> reservation;
 
